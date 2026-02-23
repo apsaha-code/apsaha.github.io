@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+{{ section.content | safe }}
+
+{# Use paginator.pages when paginate_by is set, else fall back to section.pages #}
+{% if paginator is defined %}
+  {% set pages = paginator.pages %}
+{% else %}
+  {% set pages = section.pages %}
+{% endif %}
+
+{% for page in pages %}
+  <article class="post-list-item">
+    <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+
+    <div class="post-meta">
+      {% if page.date %}<span>{{ page.date | date(format="%B %e, %Y") }}</span>{% endif %}
+      {% if page.reading_time %}<span class="dot">•</span><span>{{ page.reading_time }} min read</span>{% endif %}
+
+      {% if page.taxonomies is defined and page.taxonomies.tags is defined %}
+        <span class="post-tags">
+          {% for t in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind="tags", name=t) }}">#{{ t }}</a>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if page.summary %}
+      <p class="post-summary">{{ page.summary | safe }}</p>
+    {% elif page.description %}
+      <p class="post-summary">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="post-readmore"><a href="{{ page.permalink }}">Read more →</a></div>
+  </article>
+
+  <hr class="post-sep" />
+{% endfor %}
+
+{# Pagination controls #}
+{% if paginator is defined and paginator.number_pagers > 1 %}
+  <nav class="pager">
+    {% if paginator.previous %}
+      <a href="{{ paginator.previous }}">← Newer</a>
+    {% endif %}
+    <span>{{ paginator.current_index }}/{{ paginator.number_pagers }}</span>
+    {% if paginator.next %}
+      <a href="{{ paginator.next }}">Older →</a>
+    {% endif %}
+  </nav>
+{% endif %}
+
+{% endblock content %}

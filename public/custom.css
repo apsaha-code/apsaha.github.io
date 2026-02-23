@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap');
+
+body {
+  font-family: "Crimson Pro", Georgia, serif;
+}/* =========================
+   Header: remove sticky + blur
+   ========================= */
+#site-nav {
+  position: static !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#site-nav::before,
+#site-nav::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ensure main content renders normally */
+#main-content {
+  opacity: 1 !important;
+  filter: none !important;
+  position: relative;
+  z-index: 1;
+
+
+  /* Body text */
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+}
+
+/* =========================
+   Typography / layout
+   ========================= */
+html {
+  font-size: 18px;
+}
+
+#main-content {
+  font-size: 1.125rem;   /* ~21px with 19px base */
+  max-width: 100ch;
+  letter-spacing: -0.005em; /* subtle tightening */
+  line-height: 1.25;        /* crisp but readable */
+}
+
+main p {
+  text-align: justify;
+  line-height: 1.25;
+}
+
+/* Small “site note” paragraph (works with your hr + p trick) */
+hr + p,
+.site-note {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* =========================
+   Posts list layout
+   ========================= */
+.post-list-item {
+  padding: 1.25rem 0;
+}
+
+.post-title a {
+  text-decoration: underline;
+}
+
+.post-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;         /* FIXED: you had a typo here */
+  align-items: baseline;
+}
+
+.post-meta .dot {
+  opacity: 0.5;
+}
+
+.post-tags {
+  margin-left: auto;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.post-summary {
+  margin-top: 0.75rem;
+}
+
+.post-readmore {
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+.post-sep {
+  opacity: 0.2;
+}
+
+/* =========================
+   Post title color: light vs dark
+   (Use theme toggle, not prefers-color-scheme)
+   ========================= */
+
+/* Default: light mode */
+.post-title a,
+.post-title a:visited,
+.post-title a:hover {
+  color: #000;
+}
+
+/* Dark mode: when theme toggles dark */
+html[data-theme="dark"] .post-title a,
+html[data-theme="dark"] .post-title a:visited,
+html[data-theme="dark"] .post-title a:hover,
+body[data-theme="dark"] .post-title a,
+body[data-theme="dark"] .post-title a:visited,
+body[data-theme="dark"] .post-title a:hover,
+html.dark .post-title a,
+html.dark .post-title a:visited,
+html.dark .post-title a:hover,
+body.dark .post-title a,
+body.dark .post-title a:visited,
+body.dark .post-title a:hover {
+  color: #fff;
+}
+
+/* Light theme only */
+html:not([data-theme="dark"]) body,
+html[data-theme="light"] body {
+  background-color: #fff;
+}
+
+/* Also ensure the main reading surface is white in light theme */
+html:not([data-theme="dark"]) main,
+html[data-theme="light"] main,
+html:not([data-theme="dark"]) #main-content,
+html[data-theme="light"] #main-content {
+  background-color: #fff;
+}
+
+:root {
+  --accent-color: #666666;
+}
+
+a {
+  font-weight: 400;
+}
+
