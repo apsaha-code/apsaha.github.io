@@ -1,6 +1,7 @@
 +++
 title = "Evaluations - a leadership angle!"
 date = 2025-12-06
+
 [taxonomies]
 tags = ["evals", "leadership"]
 +++
@@ -131,6 +132,6 @@ The questions I ask:
 
 As AI systems become more capable and more consequential, evaluation will continue to be discussed primarily as a technical challenge.
 
-My experience suggests that many of the most costly failures are not caused by missing metrics or insufficient data. They are caused by unclear ownership when tradeoffs arise and reluctance to make uncomfortable decisions.
+My experience suggests that many of the costly failures are not caused by missing metrics or insufficient data. They are caused by unclear ownership when tradeoffs arise and reluctance to make uncomfortable decisions.
 
 Evaluation works best when leaders treat it as a decision discipline — one that requires accountability, judgment, and the willingness to slow down to define metrics that actually constrain action.
